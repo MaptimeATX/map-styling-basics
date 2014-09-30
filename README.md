@@ -64,6 +64,34 @@ selector {
 
 Note that the semicolons `;` at the end of each attribute line are important.
 
+
+#### Attributes and Values
+
+These are describe specific stylistic elements (color, size, etc) that should be
+applied to data. They have some general categories depending on the type of data
+being styled (e.g.  points, lines, polygons, text).
+
+```css
+#water {
+    polygon-fill: #639EB7;
+    line-color: #407E99;
+    line-width: 1;
+}
+```
+
+In that example, we can assume water features are polygons and this rule says
+that the inside of the polygon (`polygon-fill`) should be colored `#639EB7`. The
+outside of the polygon (`line-color`) should be colored `#407E99`, and that
+outline should have a width (`line-width`) of 1 pixel.
+
+There are a lot of different attribute names. Way too many to go over them one
+by one, but they follow a logical naming scheme and the example projects are a
+good way to get a feel of the most common ones. 
+
+A full reference list is here:
+https://github.com/mapbox/carto/blob/master/docs/latest.md
+
+
 #### Selectors
 
 There are two main types of selectors: ID selectors and Class selectors.
