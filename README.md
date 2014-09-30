@@ -52,11 +52,13 @@ Looks like so:
 
 Structure of a CSS rule:
 
+```css
     selector {
         attribute: value;
         another-attribute: another-value;
         ...
     }
+```
 
 Note that the semicolons `;` at the end of each attribute line are important.
 
