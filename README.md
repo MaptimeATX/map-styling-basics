@@ -266,6 +266,34 @@ To help come up with some color palettes:
  - http://www.colourlovers.com/
 
 
+
+### Stacking Styling
+
+
+Styles are applied in order, and defining a style attribute twice on the same
+data layer will override the previous definition. But sometimes it's useful to
+have two styles applied to the same data. For example, adding a glow effect to a
+border can be accomplished by defining a line style twice (once with a
+large semi-transparent line style, and once with a thicker line style). To
+accomplish this, you can use the `::<name>` syntax. These names are called symbolizers
+they can be any string, and there can be multiple symbolizers. These symbolizers
+create separate layers to draw styles from, so they can be used to compose
+advanced styles.
+
+```css
+#layer {
+   line-color: #C00;
+   line-width: 1;
+}
+
+#layer::glow {
+   line-color: #0AF;
+   line-opacity: 0.5;
+   line-width: 4;
+}
+```
+
+
 ### Resources
 
 - Screencast of styling in Mapbox Studio: https://vimeo.com/mapbox/review/104757116/dc2bb1a46c
