@@ -293,6 +293,11 @@ advanced styles.
 }
 ```
 
+More info can be found in these links: 
+ - https://www.mapbox.com/tilemill/docs/manual/carto/
+ - https://www.mapbox.com/tilemill/docs/guides/symbol-drawing-order/
+
+
 
 ### Resources
 
