@@ -16,7 +16,7 @@ Software-wise, you've got two good options:
 - Developed by Mapbox.
 - Soon to be old hat. These days virtually all development attention is focused
   on Mapbox Studio.
-
+- Download: https://www.mapbox.com/tilemill/
 
 
 ### Mapbox-Studio
@@ -24,20 +24,19 @@ Software-wise, you've got two good options:
 - Was originally developed as Tilemill 2 but was rebranded before release.
 - Was only released a few weeks ago, though has been in dev for long before
   that.
-- Harder, better, faster, stronger than than Tilemill.
-- Requires a mapbox account (there's a free tier).
+- Harder, better, faster, stronger than Tilemill.
+- Requires a Mapbox account (there's a free tier).
 - Includes really easy access to global datasets (e.g. streets, terrain,
   imagery)
-- Not as good as Tilemill for publishing maps outside of mapbox service (though
+- Not as good as Tilemill for publishing maps outside of the Mapbox service (though
   theoretically possible if you're using only your own data).
 - Open source (BSD license).
-
-
+- Download: https://www.mapbox.com/mapbox-studio
 
 
 ## CartoCSS
 
-A rule-based language for applying styles to maps.
+A rule-based language for applying styles to maps. Has a lot of similarity to plain old CSS (used for styling web pages).
 
 
 Looks like so:
@@ -59,21 +58,44 @@ Structure of a CSS rule:
         ...
     }
 
+Note that the semicolons `;` at the end of each attribute line are important.
 
 #### Selectors
+
+There are two main types of selectors: ID selectors and Class selectors.
+
+##### ID Selectors
+
+ID selectors target a dataset by its ID and are prefixed by the `#` symbol. For
+example:
+
+    #myRoadDataset {
+        ...
+    }
+
+Note that IDs should be *unique*.
+
+##### Class selectors
+
+Class selectors target potentially multiple datasets all of the same "class".
+Class selectors are prefixed by the `.` symbol. For example:
+
+    .roads {
+        ...
+    }
+
+Classes are determined by you as the designer and data keeper. For example you
+might have several specific road datasets, each with their own ID
+(`#austinRoads`, `#sanAntonioRoads`, etc.), but you want to apply the same rules
+to all of them. In this case, give each dataset the class `.roads`.
+
+##### Other Special Selectors
 
 `Map` is used to set the background attributes (wherever there is no
 data to style):
 
     Map {
         background-color: #fefef1;
-    }
-
-
-But far more often, they are used to point to specific datasets by ID:
-
-    #road {
-        ...
     }
 
 
@@ -140,7 +162,6 @@ Selectors can be nested inside of other rules. This helps keep things organized:
             line-width: 2;
         }
     }
-
 
 
 ##### More info
