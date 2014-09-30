@@ -227,7 +227,7 @@ Colors can be defined a few ways:
 
 
 See this link to play with CSS colors:
-[https://developer.mozilla.org/en-US/docs/Web/CSS/Tools/ColorPicker_Tool]
+https://developer.mozilla.org/en-US/docs/Web/CSS/Tools/ColorPicker_Tool
 
 
 To help come up with some color palettes:
