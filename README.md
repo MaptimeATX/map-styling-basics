@@ -247,11 +247,12 @@ Example:
 ### Colors!
 
 Colors can be defined a few ways:
- - hex: #47DAD3
- - rgb (red, green, blue): rgb(71, 218, 211)
- - rgba (red, green, blue, alpha): rgba(71, 218, 211, 0.5)
- - hsl (hue, saturation, lightness): hsl(177, 67%, 57%)
- - hsla (hue, saturation, lightness, alpha): hsla(177, 67%, 57%, 0.5)
+ - name: `blue` (note that not all colors have names)
+ - hex: `#47DAD3`
+ - rgb (red, green, blue): `rgb(71, 218, 211)`
+ - rgba (red, green, blue, alpha): `rgba(71, 218, 211, 0.5)`
+ - hsl (hue, saturation, lightness): `hsl(177, 67%, 57%)`
+ - hsla (hue, saturation, lightness, alpha): `hsla(177, 67%, 57%, 0.5)`
 
 
 See this link to play with CSS colors:
@@ -264,3 +265,8 @@ To help come up with some color palettes:
  - https://kuler.adobe.com/create/color-wheel/
  - http://www.colourlovers.com/
 
+
+### Resources
+
+- Screencast of styling in Mapbox Studio: https://vimeo.com/mapbox/review/104757116/dc2bb1a46c
+- Big list of CartoCSS attributes: https://github.com/mapbox/carto/blob/master/docs/latest.md
