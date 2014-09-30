@@ -41,22 +41,26 @@ A rule-based language for applying styles to maps. Has a lot of similarity to pl
 
 Looks like so:
 
-    #water {
-      polygon-fill: #639EB7;
-      line-color: #407E99;
-      line-width: 1;
-    }
+```css
+#water {
+    polygon-fill: #639EB7;
+    line-color: #407E99;
+    line-width: 1;
+}
+```
 
 
 ### Breaking it down
 
 Structure of a CSS rule:
 
-    selector {
-        attribute: value;
-        another-attribute: another-value;
-        ...
-    }
+```css
+selector {
+    attribute: value;
+    another-attribute: another-value;
+    ...
+}
+```
 
 Note that the semicolons `;` at the end of each attribute line are important.
 
@@ -69,9 +73,11 @@ There are two main types of selectors: ID selectors and Class selectors.
 ID selectors target a dataset by its ID and are prefixed by the `#` symbol. For
 example:
 
-    #myRoadDataset {
-        ...
-    }
+```css
+#myRoadDataset {
+    ...
+}
+```
 
 Note that IDs should be *unique*.
 
@@ -80,9 +86,11 @@ Note that IDs should be *unique*.
 Class selectors target potentially multiple datasets all of the same "class".
 Class selectors are prefixed by the `.` symbol. For example:
 
-    .roads {
-        ...
-    }
+```css
+.roads {
+    ...
+}
+```
 
 Classes are determined by you as the designer and data keeper. For example you
 might have several specific road datasets, each with their own ID
@@ -94,9 +102,11 @@ to all of them. In this case, give each dataset the class `.roads`.
 `Map` is used to set the background attributes (wherever there is no
 data to style):
 
-    Map {
-        background-color: #fefef1;
-    }
+```css
+Map {
+    background-color: #fefef1;
+}
+```
 
 
 ##### Filters
@@ -104,64 +114,76 @@ data to style):
 Filters make selectors more specific. For example, they can be used to apply
 rules at certain zoom levels:
 
-    #road[zoom>=13] {
-        ...
-    }
+```css
+#road[zoom>=13] {
+    ...
+}
+```
 
 
 Or refer to features in a dataset that match some attribute:
 
-    #road[type='major'] {
-        ...
-    }
+```css
+#road[type='major'] {
+    ...
+}
+```
 
 
 ##### Multiple Selectors
 
 When separated by a comma, the rule is applied if either filter is true:
 
-    #road[zoom>=13], #road[type='major'] {
-        ...
-    }
+```css
+#road[zoom>=13], #road[type='major'] {
+    ...
+}
+```
 
 
 When chained together, the rule is applied when both filters are true:
 
-    #road[type='major'][zoom>=13] {
-        ...
-    }
+```css
+#road[type='major'][zoom>=13] {
+    ...
+}
+```
 
 
 Rules are applied in order of appearance, and style attributes will be
 over-written by subsequent rules:
 
-    #road[type='major']{
-        line-color: #1E2A2F2;
-    }
+```css
+#road[type='major']{
+    line-color: #1E2A2F2;
+}
 
-    #road[type='major'][zoom>=13] {
-        line-width: 1;
-    }
+#road[type='major'][zoom>=13] {
+    line-width: 1;
+}
 
-    #road[type='major'][zoom>=17] {
-        line-width: 2;
-    }
+#road[type='major'][zoom>=17] {
+    line-width: 2;
+}
+```
 
 
 ##### Nesting Selectors
 
 Selectors can be nested inside of other rules. This helps keep things organized:
 
-    #road[type='major']{
-        line-color: #1E2A2F2;
+```css
+#road[type='major']{
+    line-color: #1E2A2F2;
 
-        [zoom>=13] {
-            line-width: 1;
-        }
-        [zoom>=17] {
-            line-width: 2;
-        }
+    [zoom>=13] {
+        line-width: 1;
     }
+    [zoom>=17] {
+        line-width: 2;
+    }
+}
+```
 
 
 ##### More info
@@ -180,15 +202,17 @@ and Mapbox Studio.
 
 Example:
 
-    @water: #639EB7;
+```css
+@water: #639EB7;
 
-    #river {
-      polygon-fill: @water;
-    }
+#river {
+  polygon-fill: @water;
+}
 
-    #stream {
-      line-fill: @water;
-    }
+#stream {
+  line-fill: @water;
+}
+```
 
 
 
