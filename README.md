@@ -66,7 +66,7 @@ Structure of a CSS rule:
 data to style):
 
     Map {
-        background-color:#fefef1;
+        background-color: #fefef1;
     }
 
 
@@ -77,19 +77,24 @@ But far more often, they are used to point to specific datasets by ID:
     }
 
 
-They can contain filters to get more specific. For example, zoom levels:
+##### Filters
+
+Filters make selectors more specific. For example, they can be used to apply
+rules at certain zoom levels:
 
     #road[zoom>=13] {
         ...
     }
 
 
-Or refer to attributes on the dataset:
+Or refer to features in a dataset that match some attribute:
 
     #road[type='major'] {
         ...
     }
 
+
+##### Multiple Selectors
 
 When separated by a comma, the rule is applied if either filter is true:
 
@@ -105,7 +110,25 @@ When chained together, the rule is applied when both filters are true:
     }
 
 
-They can also be nested - this helps keep things organized:
+Rules are applied in order of appearance, and style attributes will be
+over-written by subsequent rules:
+
+    #road[type='major']{
+        line-color: #1E2A2F2;
+    }
+
+    #road[type='major'][zoom>=13] {
+        line-width: 1;
+    }
+
+    #road[type='major'][zoom>=17] {
+        line-width: 2;
+    }
+
+
+##### Nesting Selectors
+
+Selectors can be nested inside of other rules. This helps keep things organized:
 
     #road[type='major']{
         line-color: #1E2A2F2;
@@ -113,12 +136,14 @@ They can also be nested - this helps keep things organized:
         [zoom>=13] {
             line-width: 1;
         }
-
         [zoom>=17] {
             line-width: 2;
         }
     }
 
+
+
+##### More info
 
 More technical details on selectors: https://www.mapbox.com/tilemill/docs/guides/selectors/
 
